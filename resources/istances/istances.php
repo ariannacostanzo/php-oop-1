@@ -21,3 +21,4 @@ $movie2_actor3 = new Actor(uniqid(), $movie2_actor3_name);
 
 $movie1 = new Movie(uniqid(), $movie1_title, $movie1_description, $director_1, [$movie1_actor1, $movie1_actor2, $movie1_actor3]);
 $movie2 = new Movie(uniqid(), $movie2_title, $movie2_description, $director_2, [$movie2_actor1, $movie2_actor2, $movie2_actor3]);
+

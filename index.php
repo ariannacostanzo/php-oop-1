@@ -11,9 +11,7 @@ require_once __DIR__ . '/resources/classes/movie/index.php';
 
 require __DIR__ . './resources/istances/istances.php';
 
-//* mostro in pagina 
-var_dump($movie1);
-var_dump($movie2);
+$movies = [$movie1, $movie2]
 ?>
 
 
@@ -26,13 +24,18 @@ var_dump($movie2);
 </head>
 <body>
     <h1>I film di oggi sono:</h1>
+    <?php foreach( $movies as $movie ) : ?>
     <div>
-        <h2><?= $movie1->title ?></h2>
-
+        <h2><?= $movie->title ?></h2>
+        <h3>Descrizione: </h3>
+        <p><?= $movie->description ?></p>
+        <p><strong>Direttore:</strong> <span><?= $movie->getDirectorName() ?></span> </p>
+        <p><strong>Attori principali:</strong> 
+            <!-- lego i singoli attori con la virgola e poi metto punto alla fine. -->
+            <?= implode(', ', array_map(fn($actor) => $actor->name, $movie->actors)) ?>.
+        </p>
     </div>
-    <div>
-        <h2><?= $movie2->title ?></h2>
+    <?php endforeach ?>
 
-    </div>
 </body>
 </html>
